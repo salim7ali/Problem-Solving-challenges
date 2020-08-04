@@ -6,6 +6,7 @@ bool visited[SIZE] = {false, false, false, false, false, false, false, false, fa
 vector<int> Q;
 
 void dispVisited(){
+    cout<<"Visited array:\n";
     for(int i=0; i<SIZE; i++){
         cout<<char(97+i)<<" ";
     }
@@ -14,6 +15,14 @@ void dispVisited(){
         cout<<visited[i]<<" ";
     }
     cout<<"\n---\n";
+}
+
+void dispQ(){
+    cout<<"Queue: ";
+    for(int i=0; i<Q.size(); i++){
+        cout<<(char)(97+Q[i])<<" ";
+    }
+    cout<<"\n";
 }
 
 int main(){
@@ -34,9 +43,11 @@ int main(){
     int curVertex = startVert;
     while(1){
         cout<<"curVertex: "<<(char)(97+curVertex)<<"\n";
+        dispQ();
         visited[curVertex] = true;
 
         // pass through all edged of vertex 
+        cout<<"Visited now: ";
         for(int col= 0; col<SIZE; col++){
             if(adjMatrix[curVertex][col]){
 

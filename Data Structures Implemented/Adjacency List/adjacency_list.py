@@ -5,11 +5,13 @@
 # |       |  E
 # |       | /
 # B-------D/
+# referred https://www.youtube.com/watch?v=QsAUil2eBZs to understand implementation
 
 class Graph:
     def __init__(self, Nodes, is_directed = False):
         self.nodes = Nodes
         self.adj_list = {}
+        self.is_directed = is_directed
 
         for node in self.nodes:
             self.adj_list[node] = []
@@ -18,9 +20,12 @@ class Graph:
         for node in self.nodes:
             print(node, "->", self.adj_list[node])
 
+    def degree(self, node):
+        return len(self.adj_list[node])
+
     def add_edge(self, u, v):
         self.adj_list[u].append(v)
-        if is_directed == False:
+        if self.is_directed == False:
             self.adj_list[v].append(u)
 
 nodes = ['A', 'B', 'C', 'D', 'E']
@@ -36,3 +41,6 @@ for u, v in all_edges:
 
 print('After:')
 graph.print_adj_list()
+
+for node in nodes:
+    print("Degree of node: ", node, " is: ",graph.degree(node))

@@ -17,7 +17,7 @@ using namespace std;
 
 int NO_OF_VERTICES =6;
 //                                      a,       b,       c,       d,       e,       f
-vector<vector<int>> weightMat =  {{       0,      14, INT_MAX, INT_MAX,       7,       9},//a
+vector<vector<int>> weightMat ={{       0,      14, INT_MAX, INT_MAX,       7,       9},//a
                                 {      14,       0,       9, INT_MAX, INT_MAX,       2},//b
                                 { INT_MAX,       9,       0,       6, INT_MAX, INT_MAX},//c
                                 { INT_MAX, INT_MAX,       6,       0,       15,     11},//d

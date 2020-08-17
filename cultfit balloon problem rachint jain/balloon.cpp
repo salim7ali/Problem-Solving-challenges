@@ -1,4 +1,5 @@
 // https://www.youtube.com/watch?v=C6aM_QpXco4
+// works for unsorted as well as sorted cases
 // #include <bits/stdc++.h>
 #include <iostream>
 #include <vector>
@@ -17,8 +18,9 @@ int main(){
             }else{
                 arrows.erase(arrows.begin()+j);
             }
-            if(balloon[i] == arrows[j])
+            if(balloon[i] == arrows[j]){
                 found = true;
+            }
         }
         if(found == false){
             arrows.push_back(balloon[i]);

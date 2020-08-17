@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=hGK_5n81drs
 // #include <bits/stdc++.h>
 // used video as reference to solve the problem
+// solved by modifying the quickSort algorithm
 #include <vector>
 #include <iostream>
 using namespace std;

@@ -1,9 +1,8 @@
-// https://practice.geeksforgeeks.org/problems/subarray-with-given-sum/0
 #include<bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
-void subarrWithSum(vector<int> nums, int &SUM, int &start, int &end){
+int subarrWithSum(vector<int> nums, int &SUM, int &start, int &end){
     int currSum =0;
     int j;
     
@@ -18,7 +17,7 @@ void subarrWithSum(vector<int> nums, int &SUM, int &start, int &end){
             if(currSum == SUM){
                 start = i;
                 end =j;
-                return;
+                return 0;
             }else if(currSum>SUM){
                 currSum -= nums[i];
                 continue;
@@ -45,9 +44,9 @@ int main() {
 	    if(found == -1)
 	        cout<<found<<"\n";
 	    else
-	        cout<<start<<end<<"\n";
+	        cout<<start+1<<" "<<end+1<<"\n";
 	   found = 0;
-	   
+	   nums.clear();
 	}
 	return 0;
 }

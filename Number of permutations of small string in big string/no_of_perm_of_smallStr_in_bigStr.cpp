@@ -21,7 +21,7 @@ int permutationsContainedInString(string bigString, string smallString){
             bigCharCount[bigString[i]] += 1;
         }else{ //smallCharCount[bigString[i]] != bigCharCount[bigString[i]]
             bigCharCount[bigString[i]] += 1;
-            if(smallCharCount[bigString[i]] == bigCharCount[bigString[i]]){
+            if(smallCharCount[bigString[i]] == bigCharCount[bigString[i]])
                 currBSMatchCount += 1;
         }
     }
@@ -43,7 +43,7 @@ int permutationsContainedInString(string bigString, string smallString){
             bigCharCount[bigString[i-1]] -= 1;
         }else{ //smallCharCount[bigString[i]] != bigCharCount[bigString[i]]
             bigCharCount[bigString[i-1]] -= 1;
-            if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]]){
+            if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]])
                 currBSMatchCount += 1;
         }
 
@@ -53,7 +53,7 @@ int permutationsContainedInString(string bigString, string smallString){
             bigCharCount[bigString[i-1]] += 1;
         }else{ //smallCharCount[bigString[i]] != bigCharCount[bigString[i]]
             bigCharCount[bigString[i-1]] += 1;
-            if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]]){
+            if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]])
                 currBSMatchCount += 1;
         }
         
@@ -61,9 +61,7 @@ int permutationsContainedInString(string bigString, string smallString){
             totBSMatchCount += 1;
         
     }
-
-
-
+    return totBSMatchCount;
 }
 
 int main(){

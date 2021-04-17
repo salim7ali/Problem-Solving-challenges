@@ -4,7 +4,7 @@ using namespace std;
 
 class ClosestPrime{
 private:
-    int MAX_SIZE = 214;//7483647 ;
+    int MAX_SIZE = 214748364;
     vector<bool> isPrime = vector<bool>(MAX_SIZE, true);
 
     void sieveOfEratosthenes(){
@@ -52,13 +52,18 @@ public:
             if(isPrime[i]){
                 cout<<i<<" ";
             }
-        }
+        }cout<<"\n";
+
     }
 
 
 };
 
 int main(){
+    // optimization
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     ClosestPrime obj;
     obj.displayGeneratedPrimes();
     cout<<obj.findClosestPrime(80)<<"\n";

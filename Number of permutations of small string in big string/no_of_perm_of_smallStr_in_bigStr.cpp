@@ -48,12 +48,12 @@ int permutationsContainedInString(string bigString, string smallString){
         }
 
         // adding right char
-        if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]]){
+        if(smallCharCount[bigString[i+windowSize-1]] == bigCharCount[bigString[i+windowSize-1]]){
             currBSMatchCount -= 1;
-            bigCharCount[bigString[i-1]] += 1;
+            bigCharCount[bigString[i+windowSize-1]] += 1;
         }else{ //smallCharCount[bigString[i]] != bigCharCount[bigString[i]]
-            bigCharCount[bigString[i-1]] += 1;
-            if(smallCharCount[bigString[i-1]] == bigCharCount[bigString[i-1]])
+            bigCharCount[bigString[i+windowSize-1]] += 1;
+            if(smallCharCount[bigString[i+windowSize-1]] == bigCharCount[bigString[i+windowSize-1]])
                 currBSMatchCount += 1;
         }
         

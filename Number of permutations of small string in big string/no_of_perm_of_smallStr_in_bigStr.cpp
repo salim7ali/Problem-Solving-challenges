@@ -25,13 +25,13 @@ int permutationsContainedInString(string bigString, string smallString){
                 currBSMatchCount += 1;
         }
     }
-    if(currBSMatchCount == windowSize)
+    if(currBSMatchCount == smallCharCount.size())
         totBSMatchCount += 1;
     
 // win =11
     for(int i=1; i+windowSize<=bigString.length(); i++){
         if((bigString[i-1] == bigString[i+windowSize-1])){
-            if(currBSMatchCount == windowSize)
+            if(currBSMatchCount == smallCharCount.size())
                 totBSMatchCount += 1;
             continue;
         }
@@ -57,7 +57,7 @@ int permutationsContainedInString(string bigString, string smallString){
                 currBSMatchCount += 1;
         }
         
-        if(currBSMatchCount == windowSize)
+        if(currBSMatchCount == smallCharCount.size())
             totBSMatchCount += 1;
         
     }

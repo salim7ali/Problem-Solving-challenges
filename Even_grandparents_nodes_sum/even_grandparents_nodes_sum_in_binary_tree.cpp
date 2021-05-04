@@ -17,9 +17,8 @@ bool isEven(int num){
 void dfs(Node* node, pair<int, int> ancestors, int &result_sum){
     node->visited = true;
 
-    if(isEven(ancestors.second)){
+    if(isEven(ancestors.second) && ancestors.second!=INT_MIN)
         result_sum += node->value;
-    }
 
     if(node->left->visited == false){
         node->left->visited = true;
@@ -38,5 +37,10 @@ int get_even_grandparents_nodes_sum(Node* head){
 
     int result_sum =0;
     dfs(head, ancestors, result_sum);
+    return result_sum;
 
+}
+
+int main(){
+    
 }

@@ -3,15 +3,21 @@
 void dfs(Node* node){
     node->visited = true;
 
-    if(node->left->visited == false)
+    if(node->left->visited == false){
+        node->left->visited = true;
         dfs(node->left);
-    if(node->left->visited == false)
-        dfs(node->left);
+    }
+    if(node->right->visited == false){
+        node->right->visited = true;
+        dfs(node->right);
+    }
 }
 
 int get_even_grandparents_nodes_sum(Node* head){
 
-    pair<int, int> ancestors;
+//   <parent, grandparent>
+    pair<int, int> ancestors = {INT_MIN, INT_MIN};
 
+    
 
 }

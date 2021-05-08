@@ -15,8 +15,9 @@ void switchWithoutBreak(){
         }
         cout<<i<<"\n";
     }
-    return 0;
 }
 
 int main(){
+    switchWithoutBreak();
+    return 0;
 }

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+void switchWithoutBreak(){
     for(int i=0; i<20; i++){
         switch(i){
             case 1: i += 5;
@@ -15,4 +15,8 @@ int main(){
         }
         cout<<i<<"\n";
     }
+    return 0;
+}
+
+int main(){
 }

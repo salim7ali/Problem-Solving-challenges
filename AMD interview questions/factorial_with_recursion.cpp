@@ -1,5 +1,7 @@
-// #include<bits/stdc++.h>
+// solved using dynamic programming
+#include<bits/stdc++.h>
 #include<iostream>
+#include<vector>
 using namespace std;
 
 int factorialWithRecursion(int n, vector<int> &solved_factorials){
@@ -13,5 +15,8 @@ int main(){
     solved_factorials[0] = 1;   //  0! == 1
     solved_factorials[1] = 1;   //  1! == 1
     
-    cout<<factorialWithRecursion(5, solved_factorials)<<"\n";
+    std::cout<<factorialWithRecursion(0, solved_factorials)<<"\n";
+    std::cout<<factorialWithRecursion(1, solved_factorials)<<"\n";
+    std::cout<<factorialWithRecursion(3, solved_factorials)<<"\n";
+    std::cout<<factorialWithRecursion(5, solved_factorials)<<"\n";
 }

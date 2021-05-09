@@ -3,7 +3,7 @@
 using namespace std;
 
 class Prime{
-    const MAX_PRIME =1000;
+    const int MAX_PRIME =1000;
     vector<bool> isPrime = vector<bool> (MAX_PRIME, true);
 public:
     Prime(){
@@ -25,12 +25,14 @@ public:
             return num;
         
         // going left
-        for(int left=num-1; left>=2; left--){
+        int left;
+        for(left=num-1; left>=2; left--){
             if(isPrime[left])
                 break;
         }
         // going right
-        for(int right=num+1; right<MAX_PRIME; right++){
+        int right;
+        for(right=num+1; right<MAX_PRIME; right++){
             if(isPrime[right])
                 break;
         }
@@ -47,4 +49,14 @@ public:
 
 int main(){
     Prime obj;
+
+    cout<<obj.closestPrime(2)<<"\n";
+    cout<<obj.closestPrime(3)<<"\n";
+    cout<<obj.closestPrime(4)<<"\n";
+    cout<<obj.closestPrime(5)<<"\n";
+    cout<<obj.closestPrime(6)<<"\n";
+    cout<<obj.closestPrime(7)<<"\n";
+    cout<<obj.closestPrime(8)<<"\n";
+    cout<<obj.closestPrime(9)<<"\n";
+    cout<<obj.closestPrime(10)<<"\n";
 }

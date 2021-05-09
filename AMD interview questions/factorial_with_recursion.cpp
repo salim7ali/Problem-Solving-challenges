@@ -11,6 +11,9 @@ int factorialWithRecursion(int n, vector<int> &solved_factorials){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     vector<int> solved_factorials(100, -1);
     solved_factorials[0] = 1;   //  0! == 1
     solved_factorials[1] = 1;   //  1! == 1

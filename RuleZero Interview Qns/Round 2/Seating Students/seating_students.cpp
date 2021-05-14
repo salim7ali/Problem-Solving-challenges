@@ -10,8 +10,7 @@ int SeatingStudents(int arr[], int arrLength){
 
     // fixing tables
     for(int i=1; i<arrLength; i++){
-        float ele_no = arr[i];
-        int ele_row = ceil(ele_no/2) -1;
+        int ele_row = ceil((float)arr[i]/2) -1;
         int ele_col = (arr[i]+1)%2;
 
         tables[ele_row][ele_col]=true; 

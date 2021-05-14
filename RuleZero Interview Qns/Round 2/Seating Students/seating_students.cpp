@@ -10,7 +10,8 @@ int SeatingStudents(int arr[], int arrLength){
 
     // fixing tables
     for(int i=1; i<arrLength; i++){
-        int ele_row = ceil(arr[i]/2) -1;
+        float ele_no = arr[i];
+        int ele_row = ceil(ele_no/2) -1;
         int ele_col = (arr[i]+1)%2;
 
         tables[ele_row][ele_col]=true; 
@@ -37,5 +38,14 @@ int SeatingStudents(int arr[], int arrLength){
 
 int main(){
     int arr[]= {12, 2, 6, 7, 11};
-    cout<<SeatingStudents(arr, 5);
+    int arrSize = sizeof(arr)/sizeof(arr[0]);
+    cout<<SeatingStudents(arr, arrSize)<<"\n";
+    
+    int arr1[]= {6, 4};
+    arrSize = sizeof(arr1)/sizeof(arr1[0]);
+    cout<<SeatingStudents(arr1, arrSize)<<"\n";
+
+    int arr2[]= {8, 1, 8};
+    arrSize = sizeof(arr2)/sizeof(arr2[0]);
+    cout<<SeatingStudents(arr2, arrSize)<<"\n";
 }

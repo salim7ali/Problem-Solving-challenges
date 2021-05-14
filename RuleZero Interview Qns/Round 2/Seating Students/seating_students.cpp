@@ -3,10 +3,10 @@ using namespace std;
 
 int SeatingStudents(int arr[], int arrLength){
     int const DESKS = arr[0];
-    int const ROWS = arrLength/2;
+    int const ROWS = arr[0]/2;
     // false = open
     // true = occupied
-    vector<vector<bool>> tables(ROWS, vector<int> (2, false));
+    vector<vector<bool>> tables(ROWS, vector<bool> (2, false));
 
     // fixing tables
     for(int i=1; i<arrLength; i++){
@@ -36,5 +36,6 @@ int SeatingStudents(int arr[], int arrLength){
 }
 
 int main(){
-    cout<<SeatingStudents({12, 2, 6, 7, 11}, 5);
+    int arr[]= {12, 2, 6, 7, 11};
+    cout<<SeatingStudents(arr, 5);
 }

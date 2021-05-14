@@ -15,6 +15,14 @@ unsigned nChoosek( unsigned n, unsigned k )
     return result;
 }
 
+int factorial(int num){
+    int fact=1;
+    for(int i=num; i>=1; i--){
+        fact *= i;
+    }
+    return fact;
+}
+
 int MatchingCouples(int arr[], int arrLength){
     int const BOYS = arr[0];
     int const GIRLS = arr[1];
@@ -29,5 +37,15 @@ int MatchingCouples(int arr[], int arrLength){
 }
 
 int main(){
-    
+    int arr[] = {10, 5, 4};
+    int arr_size = sizeof(arr)/sizeof(arr[0]);
+    cout<<MatchingCouples(arr, arr_size)<<"\n";
+
+    int arr1[] = {5, 5, 4};
+    int arr1_size = sizeof(arr1)/sizeof(arr1[0]);
+    cout<<MatchingCouples(arr1, arr1_size)<<"\n";
+
+    int arr2[] = {2, 2, 2};
+    int arr2_size = sizeof(arr2)/sizeof(arr2[0]);
+    cout<<MatchingCouples(arr2, arr2_size)<<"\n";
 }

@@ -15,8 +15,8 @@ int FoodDistribution(vector<int> arr){
         max_hunger += hungry[i];
     }
     int min_hunger = max_hunger - sandwiches;
-    possible_hunger_avg = ceil(min_hunger/hungry.size());
-    cout<<possible_hunger_avg<<"\n";
+    possible_hunger_avg = ceil((float)min_hunger/hungry.size());
+    // cout<<possible_hunger_avg<<"\n";
 
     vector<int> result_hungry = hungry;
     int i=0;
@@ -31,19 +31,24 @@ int FoodDistribution(vector<int> arr){
                 // sandwiches =0;
                 break;
             }
-
         }
+        i += 1;
     }
 
     // disp result
+    int result =0;
     for(int i=0; i<result_hungry.size(); i++){
-        cout<<result_hungry[i]<<" ";
-    }
+        if(i<result_hungry.size()-1)
+            result += abs(result_hungry[i]-result_hungry[i+1]);
+        // cout<<result_hungry[i]<<" ";
+    }cout<<"\n";
+
+    return result;
 }
 
 int main(){
-    // cout<<FoodDistribution({5, 3, 1, 2, 1})<<"\n";
+    cout<<FoodDistribution({5, 3, 1, 2, 1})<<"\n";
     cout<<FoodDistribution({4, 5, 2, 3, 1, 0})<<"\n";
-    // cout<<FoodDistribution({5, 2, 3, 4, 5})<<"\n";
-    // cout<<FoodDistribution({3, 2, 1, 0, 4, 1, 0})<<"\n";
+    cout<<FoodDistribution({5, 2, 3, 4, 5})<<"\n";
+    cout<<FoodDistribution({3, 2, 1, 0, 4, 1, 0})<<"\n";
 }

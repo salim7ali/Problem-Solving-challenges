@@ -16,6 +16,11 @@ def shortest_time_diff(time_list):
         if (minutes_list[i]-minutes_list[i-1]) < smallest_diff:
             smallest_diff =  minutes_list[i]-minutes_list[i-1]
     
+    # handling edge case
+    DAY_MINUTES = 60*24
+    edge_case_time = (DAY_MINUTES - minutes_list[-1]) + minutes_list[0]
+    smallest_diff = min(edge_case_time, smallest_diff)
+    
     return smallest_diff
 
 

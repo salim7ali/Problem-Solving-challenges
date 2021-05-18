@@ -25,9 +25,13 @@ class List_Handler:
 
 
 if __name__ == "__main__":
-    first = "[5, 2, 3]"
-    second = "[2, 2, 3, 10, 6]"
 
-    obj = List_Handler(first, second)
-    print(obj.ArrayChallenge())
+    obj2 = List_Handler("[5, 2, 3]", "[2, 2, 3, 10, 6]")
+    print(obj2.ArrayChallenge())
+    
+    obj2 = List_Handler("[1, 2, 5, 6]", "[5, 2, 8, 11]")
+    print(obj2.ArrayChallenge())
+
+    obj2 = List_Handler("[1, 2, 1]", "[2, 1, 5, 2]")
+    print(obj2.ArrayChallenge())
     

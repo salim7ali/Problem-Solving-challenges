@@ -3,6 +3,7 @@
 using namespace std;
 
 class Replacer{
+    // instance variable
     int NUM;
 public:
     Replacer(int num){
@@ -25,12 +26,16 @@ public:
             }
             position += 1; 
         }
+        return result_num;
     }
 
 };
 
 int main(){
-  Replacer obj(102);
-  obj.replace_method();
+  Replacer obj1(102);
+  cout<<obj1.replace_method()<<"\n";
+
+  Replacer obj2(1020);
+  cout<<obj2.replace_method()<<"\n";
     
 }

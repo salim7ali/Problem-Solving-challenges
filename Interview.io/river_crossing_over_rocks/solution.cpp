@@ -5,7 +5,7 @@ using namespace std;
 class RiverCrossing{
     // instance variables
     int ROCKS;
-private:
+public:
     RiverCrossing(int rocks){
         this->ROCKS = rocks;
     }
@@ -16,7 +16,9 @@ private:
         int step_position = 0;
         //  n(r-2)   , n(r-1)
         int prev_rock_step=1, curr_rock_step=1;
-        while(step_position<=ROCKS){
+        
+        // The solution basically follows the fibonacchi sequence 0, 1, 1, 2, 3, 5, 8, .....
+        while(step_position<ROCKS){
             int temp = prev_rock_step;
             prev_rock_step = curr_rock_step;
             curr_rock_step = temp + curr_rock_step;
@@ -27,7 +29,13 @@ private:
     }
 };
 
-int main(){{
-     RiverCrossing obj1(5);
+int main(){
+     RiverCrossing obj1(1);
      cout<<obj1.get_no_of_ways()<<"\n";
+     
+     RiverCrossing obj2(2);
+     cout<<obj2.get_no_of_ways()<<"\n";
+
+     RiverCrossing obj3(9);
+     cout<<obj3.get_no_of_ways()<<"\n";
 }

@@ -25,7 +25,7 @@ public:
     }
 
     bool isValidNode(int i, int j, v2d &maze){
-        if(i>=0 && i<maze.size() && j>=0 && j<maze[0].size)
+        if(i>=0 && i<maze.size() && j>=0 && j<maze[0].size())
             return true;
         return false;
     }
@@ -35,7 +35,7 @@ public:
             for(int j=0; j< matrix[0].size(); j++){
                 cout<<matrix[i][j]<<" ";
             }cout<<"\n";
-        }
+        }cout<<"\n";
     }
 
     void dfs(int i, int j){
@@ -49,15 +49,16 @@ public:
         for(int k=0; k<4; k++){
             int neighbour_i = i + directions[k].first; 
             int neighbour_j = j + directions[k].second; 
-            if(isValidNode(neighbour_i, neighbour_j, maze) && currently_visited[neighbour_i][neighbour_j]==0){
+            if(isValidNode(neighbour_i, neighbour_j, maze) && currently_visited[neighbour_i][neighbour_j]==0
+                && maze[neighbour_i][neighbour_j] != 0){
                 dfs(neighbour_i, neighbour_j);
             }
         }
         currently_visited[i][j] = 0;
     }
 
-    int generate_paths(){
-        
+    void generate_paths(){
+        cout<<"Result possible paths:\n";
         dfs(START_INDICES.first, START_INDICES.second);
     }
 

@@ -13,58 +13,57 @@ public:
         this->k = k;
     }
 
-    void findNext(int &currIndex, char thief_of_police, vector<char> &police_thief){
+    void findNext(int &curr_index, char thief_or_police, vector<char> &police_thief){
         int i; 
-        if(thief_of_police == 'P'){
-            for(i=currIndex+1; i<police_thief.size(); i++){
+        if(thief_or_police == 'P'){
+            for(i=curr_index+1; i<police_thief.size(); i++){
                 if(police_thief[i] == 'P'){
-                    currIndex = i;
+                    curr_index = i;
                     return;
                 }
             }
-            currIndex = INT_MAX;
-        }else if(thief_of_police == 'T'){
-            for(i=currIndex+1; i<police_thief.size(); i++){
+            curr_index = INT_MAX;
+        }else if(thief_or_police == 'T'){
+            for(i=curr_index+1; i<police_thief.size(); i++){
                 if(police_thief[i] == 'T'){
-                    currIndex = i;
+                    curr_index = i;
                     return;
                 }
             }
-            currIndex = INT_MAX;
+            curr_index = INT_MAX;
         }
     }
 
     int maxThievesCaught(){
-        int policeIndex = INT_MIN;
-        int thiefIndex = INT_MIN;
+        int police_index = INT_MIN;
+        int thief_index = INT_MIN;
 
         // finding first instances of police and thief from left side
         for(int i=0; i<police_thief.size(); i++){
-            if(policeIndex != INT_MIN && thiefIndex != INT_MIN)
+            if(police_index != INT_MIN && thief_index != INT_MIN)
                 break;
-            if(police_thief[i] == 'P' && policeIndex == INT_MIN)
-                policeIndex = i;
-            if(police_thief[i] == 'T' && thiefIndex == INT_MIN)
-                thiefIndex = i;
+            if(police_thief[i] == 'P' && police_index == INT_MIN)
+                police_index = i;
+            if(police_thief[i] == 'T' && thief_index == INT_MIN)
+                thief_index = i;
         }
 
         int maxCaught =0;
-        while(policeIndex < police_thief.size() && thiefIndex < police_thief.size()){
-            if(abs(policeIndex-thiefIndex) <= k){
+        while(police_index < police_thief.size() && thief_index < police_thief.size()){
+            if(abs(police_index - thief_index) <= k){
                 maxCaught += 1;
-                findNext(policeIndex, 'P', police_thief);
-                findNext(thiefIndex, 'T', police_thief);
+                findNext(police_index, 'P', police_thief);
+                findNext(thief_index, 'T', police_thief);
             }else{
-                if(policeIndex < thiefIndex)
-                    findNext(policeIndex, 'P', police_thief);
-                else  //policeIndex > thiefIndex
-                    findNext(thiefIndex, 'T', police_thief);
+                if(police_index < thief_index)
+                    findNext(police_index, 'P', police_thief);
+                else  //police_index > thief_index
+                    findNext(thief_index, 'T', police_thief);
             }
         }
-
-        
+        return maxCaught;
     }
-}
+};
 
 int main(){
     vector<char> police_thief;

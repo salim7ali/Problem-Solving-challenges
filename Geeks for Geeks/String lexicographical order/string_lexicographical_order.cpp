@@ -34,13 +34,13 @@ public:
         return result;
     }
 
-}
+};
 
 int main(){
-    vector<string> versions = {"a a", "c b", "b b", "a 1", "b 2"};
+    vector<string> versions = {"a a", "c b", "z z", "b 1", "a f", "b a", "a 9", "b b", "a 1", "a z", "b 2"};
     Versioning obj(versions);
     vector<string> result = obj.gen_lexicographical_order();
     for(auto ele: result){
-        cout<<ele<<" ";
+        cout<<ele<<"\n";
     }
 }

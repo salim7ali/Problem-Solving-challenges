@@ -36,7 +36,7 @@ public:
     int bin_search(int L, int R, int ele){
         while(L<=R){
             int mid_index = L + floor((R-L)/2);
-            
+
             if(inc_dec_list[mid_index] == ele){
                 return mid_index;
             }else if(ele < inc_dec_list[mid_index]){
@@ -48,23 +48,41 @@ public:
         return INT_MIN;
     }
 
+    int dec_bin_search(int L, int R, int ele){
+        while(L<=R){
+            int mid_index = L + floor((R-L)/2);
+
+            if(inc_dec_list[mid_index] == ele){
+                return mid_index;
+            }else if(ele > inc_dec_list[mid_index]){
+                R = mid_index-1;
+            }else{ //inc_dec_list[mid_index] > ele
+                L = mid_index+1;
+            }
+        }
+        return INT_MIN;
+    }
+
     int get_element_index(int ele){
         int L = 0;
         int R = inc_dec_list.size()-1;
 
         int peak_index = get_peak_index(L, R);
+        cout<<"PI"<<peak_index<<"\n";
 
-        int ele_index;
+        int ele_index = INT_MIN;
         if(inc_dec_list[0]<=ele && ele<inc_dec_list[peak_index]){
             ele_index = bin_search(0, peak_index-1, ele);
-        }else if(inc_dec_list[peak_index]<=ele && ele<=inc_dec_list[inc_dec_list.size()-1]){
-            // ele_index = rev_bin_search(peak_index, inc_dec_list.size()-1, ele);
-        }else
-            return INT_MIN;
+        }
+        if(ele_index==INT_MIN &&
+         inc_dec_list[peak_index]>=ele && ele>=inc_dec_list[inc_dec_list.size()-1]){
+            ele_index = dec_bin_search(peak_index, inc_dec_list.size()-1, ele);
+        }
+        return ele_index;
     }
 };
 
 int main(){
     IncDecList obj({1, 4, 23, 45, 50, 49, 48, 40, 21, 4, 2});
-    obj.get_element_index(23);
+    cout<<obj.get_element_index(21)<<"\n";
 }

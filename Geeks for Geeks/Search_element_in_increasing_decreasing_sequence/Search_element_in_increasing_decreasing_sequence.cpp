@@ -14,8 +14,11 @@ public:
         while(L<=R){
             int mid_index = L + floor((R-L)/2);
             
-            
-            if(inc_dec_list[mid_index-1] < inc_dec_list[mid_index] 
+            if(L==0 && mid_index==0)
+                return L;
+            else if(R==inc_dec_list.size()-1 && mid_index==inc_dec_list.size()-1)
+                return R;
+            else if(inc_dec_list[mid_index-1] < inc_dec_list[mid_index] 
             && inc_dec_list[mid_index] > inc_dec_list[mid_index+1]){
                 return mid_index;
             }
@@ -28,7 +31,6 @@ public:
                 R = mid_index -1;
             }
         }
-
     }
 
     int get_element_index(int ele){

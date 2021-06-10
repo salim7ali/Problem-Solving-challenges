@@ -8,12 +8,23 @@ using namespace std;
 // 0 -> white
 class Islands{
 public:
+    bool isValid(int i, int j, vector<vector<int>> &matrix){
+        if(i>=0 && i<matrix.size()-1 && j>=0 && j<matrix[0].size()-1)
+            return true;
+        return false;
+    }
+
     void dfs(int i, int j, vector<vector<int>> &matrix, vector<vector<bool>> &visited){
         visited[i][j] = true;
         
         int neighbours[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        for(int )
-        if(visited[i][j] )
+        for(int k=0; k<4; k++){
+            int neighbourRow = i+neighbours[k][0]; 
+            int neighbourCol = j+neighbours[k][1]
+            if(isValid(neighbourRow, neighbourCol, matrix) && visited[i][j]==false )
+                dfs(neighbourRow, neighbourCol, matrix, visited);
+
+        }
     }
 
     vector<vector<int>> removeIslands(vector<vector<int>> matrix){

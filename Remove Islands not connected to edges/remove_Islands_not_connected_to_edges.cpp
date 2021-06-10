@@ -42,12 +42,27 @@ public:
                 }
             }
         }
-
-
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[0].size(); j++){
+                if(matrix[i][j] == 2)
+                    matrix[i][j] = 1;
+                else if(matrix[i][j] == 1)
+                    matrix[i][j] = 0;
+            }
+        }
 
         return matrix;
     }
 };
+
+void displayMatrix(vector<vector<int>> &matrix){
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[0].size(); j++){
+                cout<<matrix[i][j]<<" ";
+            }cout<<"\n";
+        }
+
+}
 
 int main(){
     vector<vector<int>> matrix ={
@@ -61,4 +76,6 @@ int main(){
     
     Islands obj;
     vector<vector<int>> resultMatrix = obj.removeIslands(matrix);
+    displayMatrix(resultMatrix);
+
 }

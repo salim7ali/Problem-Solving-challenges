@@ -14,21 +14,21 @@ public:
         return false;
     }
 
-    void dfs(int i, int j, vector<vector<int>> &matrix, vector<vector<bool>> &visited){
-        visited[i][j] = true;
+    void dfs(int i, int j, vector<vector<int>> &matrix){
+        matrix[i][j] += 1;
         
         int neighbours[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         for(int k=0; k<4; k++){
             int neighbourRow = i+neighbours[k][0]; 
-            int neighbourCol = j+neighbours[k][1]
-            if(isValid(neighbourRow, neighbourCol, matrix) && visited[i][j]==false )
-                dfs(neighbourRow, neighbourCol, matrix, visited);
+            int neighbourCol = j+neighbours[k][1];
+            if(isValid(neighbourRow, neighbourCol, matrix) && matrix[i][j]==1 )
+                dfs(neighbourRow, neighbourCol, matrix);
 
         }
     }
 
     vector<vector<int>> removeIslands(vector<vector<int>> matrix){
-        vector<vector<bool>> visited(matrix.size(), vector<int> (matrix[0].size(), false));
+        // vector<vector<bool>> visited(matrix.size(), vector<bool> (matrix[0].size(), false));
         
         for(int i=0; i<matrix.size(); i++){
             for(int j=0; j<matrix[0].size(); j++){
@@ -38,7 +38,7 @@ public:
                 int last_col = matrix[0].size()-1;
                 
                 if((i==first_row || i==last_row || j==first_col || j==last_col) && matrix[i][j]==1){
-                    dfs(i, j, matrix, visited);
+                    dfs(i, j, matrix);
                 }
             }
         }

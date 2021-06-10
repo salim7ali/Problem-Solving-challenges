@@ -4,6 +4,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void displayMatrix(vector<vector<int>> &matrix){
+    for(int i=0; i<matrix.size(); i++){
+        for(int j=0; j<matrix[0].size(); j++){
+            cout<<matrix[i][j]<<" ";
+        }cout<<"\n";
+    }
+    cout<<"\n";
+}
+
 // 1 -> black
 // 0 -> white
 class Islands{
@@ -21,7 +30,7 @@ public:
         for(int k=0; k<4; k++){
             int neighbourRow = i+neighbours[k][0]; 
             int neighbourCol = j+neighbours[k][1];
-            if(isValid(neighbourRow, neighbourCol, matrix) && matrix[i][j]==1 )
+            if(isValid(neighbourRow, neighbourCol, matrix) && matrix[neighbourRow][neighbourCol]==1 )
                 dfs(neighbourRow, neighbourCol, matrix);
 
         }
@@ -42,6 +51,10 @@ public:
                 }
             }
         }
+        
+        // displayMatrix(matrix);
+        
+        // removing black pixels
         for(int i=0; i<matrix.size(); i++){
             for(int j=0; j<matrix[0].size(); j++){
                 if(matrix[i][j] == 2)
@@ -55,15 +68,6 @@ public:
     }
 };
 
-void displayMatrix(vector<vector<int>> &matrix){
-        for(int i=0; i<matrix.size(); i++){
-            for(int j=0; j<matrix[0].size(); j++){
-                cout<<matrix[i][j]<<" ";
-            }cout<<"\n";
-        }
-
-}
-
 int main(){
     vector<vector<int>> matrix ={
         {1, 0, 0, 0, 0, 0},
@@ -73,6 +77,7 @@ int main(){
         {1, 0, 1, 1, 0, 0},
         {1, 0, 0, 0, 0, 1},
     };
+    displayMatrix(matrix);
     
     Islands obj;
     vector<vector<int>> resultMatrix = obj.removeIslands(matrix);

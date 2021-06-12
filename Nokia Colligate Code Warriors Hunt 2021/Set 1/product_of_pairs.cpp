@@ -21,11 +21,11 @@ long long solve_optimized(int N, int K, vector<int> A) {
 
    long long result = 0;
    int count = 1;
-   for(int width=K; width<(int)A.size(); width*=count){
+   for(int width=K; width<(int)A.size(); width=K*count){
        for(int i=0; i+width<(int)A.size(); i++){
            int j= i+width;
            result += A[i]*A[j];
-           cout<<result<<" ";
+           cout<<result<<" i:"<<i<<", j:"<<j<<"\n";
        }
        count +=1;
    }
@@ -34,27 +34,10 @@ long long solve_optimized(int N, int K, vector<int> A) {
 }
 
 int main() {
-    vector<int> nums = {2, 3, 5, 1, 5};
-    cout<<"\n"<<solve_optimized(5, 4, nums);
-    // ios::sync_with_stdio(0);
-    // cin.tie(0);
-    // int T;
-    // cin >> T;
-    // for(int t_i = 0; t_i < T; t_i++)
-    // {
-    //     int N;
-    //     cin >> N;
-    //     int K;
-    //     cin >> K;
-    //     vector<int> A(N);
-    //     for(int i_A = 0; i_A < N; i_A++)
-    //     {
-    //     	cin >> A[i_A];
-    //     }
+    vector<int> nums = {7, 8, 2, 3, 1};
+    // cout<<"\n"<<solve_optimized(5, 4, nums);
 
-    //     long long out_;
-    //     out_ = solve(N, K, A);
-    //     cout << out_;
-    //     cout << "\n";
-    // }
+    // nums = {2, 3, 5, 1, 5, 2, 1, 3};
+    cout<<"\n"<<solve_optimized(5, 3, nums);
+
 }

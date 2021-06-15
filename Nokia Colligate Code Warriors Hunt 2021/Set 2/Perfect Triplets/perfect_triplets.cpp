@@ -30,7 +30,7 @@ long long countTriplets(int N, vector<int> A){
 int main(){
     vector<int> nums = {3, 6, 2};
     cout<<countTriplets(3, nums)<<"\n";
-    
-    vector<int> nums = {3, 6, 2};
+
+    nums = {1, 2, 3};
     cout<<countTriplets(3, nums)<<"\n";
 }

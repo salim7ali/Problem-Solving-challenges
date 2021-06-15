@@ -4,8 +4,15 @@ using namespace std;
 
 class Comparison{
 public:
-    int smallestOfThree(int a, int b, int c){
+    int smallerPair(int a, int b){
+        if(a/b)    // a>b
+            return b;
+        else    // a<b
+            return a;
+    }
 
+    int smallestOfThree(int a, int b, int c){
+        
     }
 }
 

@@ -29,5 +29,8 @@ int main(){
     Comparison obj3;
     cout<<obj3.smallestOfThree(78, 88, 68)<<"\n";
 
+    Comparison obj4;
+    cout<<obj4.smallestOfThree(4, 8, 2)<<"\n";
+
     return 0;
 }

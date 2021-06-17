@@ -28,9 +28,22 @@ public:
         return rotated_matrix;
     }
 
-    // vector<vector<int>> rotateAntiClockwise90(){
+    vector<vector<int>> rotateAntiClockwise90(){
+        // switching for rotated matrix
+        int rotated_row_size = this->matrix[0].size();
+        int rotated_col_size = this->matrix.size();
 
-    // }
+        vector<vector<int>> rotated_matrix(rotated_row_size, vector<int> (rotated_col_size));
+        for(int i=0; i<this->matrix.size(); i++){
+            int rotated_curr_col = i; 
+            for(int j=0; j<this->matrix[0].size(); j++){
+                int rotated_curr_row = rotated_row_size - j -1;
+
+                rotated_matrix[rotated_curr_row][rotated_curr_col] = this->matrix[i][j];
+            }
+        }
+        return rotated_matrix;
+    }
 
     void dispMatrix(vector<vector<int>> matrix){
         for(int i=0; i<matrix.size(); i++){
@@ -55,7 +68,9 @@ int main(){
     obj.dispMatrix(matrix);
     result = obj.rotateClockwise90();
     obj.dispMatrix(result);
-    // obj.rotateAntiClockwise90();
+
+    result = obj.rotateAntiClockwise90();
+    obj.dispMatrix(result);
 
     // obj.dispMatrix(obj.matrix);
     

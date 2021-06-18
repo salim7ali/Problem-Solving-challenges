@@ -18,10 +18,11 @@ public:
                 int A_B = stoi(str_A_B);
                 int B_A = stoi(str_B_A);
 
-                if(B_A > A_B){}
+                if(B_A > A_B)
                     swap(nums[i], nums[j]);
             }
         }
+        return nums;
     }
 };
 
@@ -36,5 +37,10 @@ int main(){
     
     Number obj1;
     result = obj1.getLargestNumber({5, 6, 2, 9, 21, 1});
+    dispVector(result);
+
+    Number obj2;
+    result = obj2.getLargestNumber({1, 34, 3, 98, 9, 76, 45, 4});
+    dispVector(result);
     
 }

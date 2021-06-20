@@ -5,9 +5,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+struct Node{
+    int value;
+    Node *left = NULL;
+    Node *right= NULL;
+};
+
 class BinTree{
 public:
-longestAPpath(){
+longestAPpath(Node *head){
     
 }
 

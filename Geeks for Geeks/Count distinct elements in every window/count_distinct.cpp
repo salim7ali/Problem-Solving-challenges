@@ -28,7 +28,7 @@ public:
         result.push_back(curr_distinct_count);
 
 
-        for(int i=1; i+k<=nums.size(); i++){
+        for(int i=1; i+k-1<nums.size(); i++){
             int exit_num = nums[i-1];
             int entry_num = nums[i+k-1];
 
@@ -49,13 +49,24 @@ public:
 
             result.push_back(curr_distinct_count);
         }
+        return result;
     }
 };
 
+void display(vector<int> nums){
+    for(auto num: nums){
+        cout<<num<<" ";
+    }cout<<"\n";
+}
+
 int main(){
-    vector<int> nums = {1,2,1,3,4,2,3};
+    // vector<int> nums = {1,2,1,3,4,2,3};
+    vector<int> nums = {1, 2, 2, 1, 3, 1, 1, 3};
     vector<int> result;
 
     Window obj(nums);
     result = obj.countDistinct(4);
+    display(result);
+
+    
 }

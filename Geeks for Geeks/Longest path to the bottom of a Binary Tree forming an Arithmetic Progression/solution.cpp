@@ -21,4 +21,5 @@ longestAPpath(Node *head){
 
 
 int main(){
+    BinTree obj;
 }

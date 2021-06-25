@@ -27,12 +27,18 @@ public:
         vector<pair<int, int>> result;
         auto it = minDistSet.begin();
         for(int i=0; i<X; i++){
-            cout<<it->second.first<<it->second.second<<"\n";
-
+            // cout<<it->second.first<<it->second.second<<"\n";
+            result.push_back({it->second.first, it->second.second});
 
             it++;
         }
         return result;
+    }
+
+    void displayResult(vector<pair<int, int>> location){
+        for(int i=0; i<location.size(); i++){
+            cout<<"["<<location[i].first<<", "<<location[i].second<<"]\n";
+        }
     }
 };
 
@@ -40,5 +46,5 @@ int main(){
     vector<pair<int, int>> location = {{1, 2}, {3, 4}, {1, -1}};
     Restaurants obj(location);
     vector<pair<int, int>> result = obj.nearestRestarurants(2);
-
-}
+    obj.displayResult(result);
+}   

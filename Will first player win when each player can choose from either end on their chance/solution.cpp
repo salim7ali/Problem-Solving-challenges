@@ -22,6 +22,10 @@ bool willFirstPlayerWin(vector<int> nums){
                 dp[i][i] = nums[i];
                 continue;
             }
+            if(abs(j-i)==1){
+                dp[i][j] = max(nums[i], nums[j]);
+                continue;
+            }
             dp[i][j] = max(nums[i]+min(dp[i+2][j], dp[i+1][j-1]), nums[j]+min(dp[i][j-2], dp[i+1][j-1]));
         }
     }
@@ -30,5 +34,6 @@ bool willFirstPlayerWin(vector<int> nums){
 }
 
 int main(){
-    cout<<willFirstPlayerWin({3, 2, 5, 5});
+    cout<<willFirstPlayerWin({3, 2, 5, 5})<<"\n";
+    cout<<willFirstPlayerWin({20, 30, 2, 10})<<"\n";
 }

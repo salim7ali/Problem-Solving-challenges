@@ -11,7 +11,8 @@ public:
     }
 
     bool isValidNeighbour(int neigh_i, int neigh_j){
-        if(matrix[neigh_i][neigh_j] !=0 && neigh_i>=0 && neigh_i<matrix.size() && neigh_j>=0 && neigh_j<matrix[0].size())
+        if(neigh_i>=0 && neigh_i<matrix.size() && neigh_j>=0 && neigh_j<matrix[0].size()
+         && matrix[neigh_i][neigh_j] != 0)
             return true;
         return false;
     }
@@ -29,7 +30,7 @@ public:
             int neigh_j = j + neighbours[k][1];
             
             if(isValidNeighbour(neigh_i, neigh_j) && visited[neigh_i][neigh_j]==false)
-                dfs(neigh_i, neigh_j, visited);
+                dfs(neigh_i, neigh_j, visited, currDist, minDist);
         }
 
         // When returning from node, reset the visited state

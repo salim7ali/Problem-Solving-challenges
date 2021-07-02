@@ -10,31 +10,39 @@ public:
         this->matrix = matrix;
     }
 
-    bool isValid(int neigh_i, int neigh_j){
-        if(neigh_i>=0 && neigh_i<matrix.size() && neigh_j>=0 && neigh_j<matrix[0].size())
+    bool isValidNeighbour(int neigh_i, int neigh_j){
+        if(matrix[neigh_i][neigh_j] !=0 && neigh_i>=0 && neigh_i<matrix.size() && neigh_j>=0 && neigh_j<matrix[0].size())
             return true;
         return false;
     }
     
-    void dfs(int i, int j, vector<vector<bool>> visited){
+    void dfs(int i, int j, vector<vector<bool>> &visited, int currDist, int &minDist){
+        if(matrix[i][j] == 9 && currDist<minDist)
+            minDist = currDist;
+
+        currDist += 1;
         visited[i][j] = true;
+
 
         for(int k=0; k<4; k++){
             int neigh_i = i + neighbours[k][0];
             int neigh_j = j + neighbours[k][1];
             
-            if(isValid(neigh_i, neigh_j) && visited[i][j]){
-
-            }
+            if(isValidNeighbour(neigh_i, neigh_j) && visited[neigh_i][neigh_j]==false)
+                dfs(neigh_i, neigh_j, visited);
         }
 
+        // When returning from node, reset the visited state
+        visited[i][j] = false;
     }
     
     int shortestDistToObstacle(){
         vector<vector<bool>> visited(matrix.size(), vector<bool> (matrix[0].size(), false));
+        int minDist =INT_MAX;
+        int currDist = 0;
 
-        dfs(0, 0, visited);
-        return 0;
+        dfs(0, 0, visited, currDist, minDist);
+        return minDist;
     }
 
 };

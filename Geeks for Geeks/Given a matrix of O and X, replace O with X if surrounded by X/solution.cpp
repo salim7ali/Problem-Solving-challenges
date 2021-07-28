@@ -11,7 +11,7 @@ class Matrix{
         // if(matrix[i][j] != 'O')
         //     return;
 
-        matrix[i][j] == '1';
+        matrix[i][j] = '1';
 
         for(int k=0; k<4; k++){
             int neighRow = i + neighbourDirections[k][0];
@@ -21,8 +21,8 @@ class Matrix{
         }
     }
 
-    bool isValid(int row, int col){
-        if(row>=0 && row<matrix.size()-1 && col>=0 && col<matrix[0].size()-1)
+    bool isValid(int i, int j){
+        if(i>=0 && i<matrix.size()-1 && j>=0 && j<matrix[0].size())
             return true;
         return false;
     }
@@ -33,29 +33,38 @@ public:
     }
 
     void replaceO(){
-        int rows = matrix.size();
-        int cols = matrix[0].size();
         
-        for(int j=0; j<cols-1; j++)
+        // top row
+        for(int j=0; j<matrix[0].size(); j++)
             if(matrix[0][j] == 'O')
                 dfs(0, j);
-        for(int i=1; i<rows-1; i++)
-            if(matrix[i][cols-1] == 'O')
-                dfs(i, cols-1);
-        for(int j=0; j<cols-2; j++)
-            if(matrix[rows-1][j] == 'O')
-                dfs(rows-1, j);
-        for(int i=1; i<rows-2; i++)
+        // this->displayMatrix();
+        
+        // rightmost col
+        for(int i=1; i<matrix.size(); i++)
+            if(matrix[i][matrix[0].size()-1] == 'O')
+                dfs(i, matrix[0].size()-1);
+        // this->displayMatrix();
+        
+        // bottom row
+        for(int j=0; j<matrix[0].size()-1; j++)
+            if(matrix[matrix.size()-1][j] == 'O')
+                dfs(matrix.size()-1, j);
+        // this->displayMatrix();
+
+        // leftmost col
+        for(int i=1; i<matrix.size()-1; i++)
             if(matrix[i][0] == 'O')
                 dfs(i, 0);
+        // this->displayMatrix();
         
         // setting final output
         for(int i=0; i<matrix.size(); i++){
             for(int j=0; j<matrix[0].size(); j++){
                 if(matrix[i][j] == '1')
-                    matrix[i][j] == 'O';
+                    matrix[i][j] = 'O';
                 else if(matrix[i][j] == 'O')
-                    matrix[i][j] == 'X';
+                    matrix[i][j] = 'X';
             }
         }
     }

@@ -6,16 +6,6 @@ using namespace std;
 class Matrix{
     vector<vector<char>> matrix;
     int neighbourDirections[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-public:
-    Matrix(vector<vector<char>> matrix){
-        this->matrix = matrix;
-    }
-
-    bool isValid(int row, int col){
-        if(row>=0 && row<matrix.size()-1 && col>=0 && col<matrix[0].size()-1)
-            return true;
-        return false;
-    }
 
     void dfs(int i, int j){
         // if(matrix[i][j] != 'O')
@@ -29,7 +19,17 @@ public:
             if(isValid(neighRow, neighCol) && matrix[neighRow][neighCol] == 'O')
                 dfs(neighRow, neighCol);
         }
-        
+    }
+
+    bool isValid(int row, int col){
+        if(row>=0 && row<matrix.size()-1 && col>=0 && col<matrix[0].size()-1)
+            return true;
+        return false;
+    }
+
+public:
+    Matrix(vector<vector<char>> matrix){
+        this->matrix = matrix;
     }
 
     void replaceO(){
@@ -49,10 +49,14 @@ public:
             if(matrix[i][0] == 'O')
                 dfs(i, 0);
         
+        // setting final output
         for(int i=0; i<matrix.size(); i++){
             for(int j=0; j<matrix[0].size(); j++){
-                cout<<matrix[i][j]<<" ";
-            }cout<<"\n";
+                if(matrix[i][j] == '1')
+                    matrix[i][j] == 'O';
+                else if(matrix[i][j] == 'O')
+                    matrix[i][j] == 'X';
+            }
         }
     }
 
@@ -64,8 +68,6 @@ public:
         }
         cout<<"\n";
     }
-
-    
 };
 
 int main(){
@@ -77,5 +79,8 @@ int main(){
                                     {'O', 'O', 'X', 'O', 'O', 'O'},
                                     };
     Matrix obj(matrix);
+    obj.displayMatrix();
+    obj.replaceO();
+    obj.displayMatrix();
     
 }

@@ -5,9 +5,25 @@ using namespace std;
 
 class Matrix{
     vector<vector<char>> matrix;
+    int neighbourDirections[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 public:
     Matrix(vector<vector<char>> matrix){
         this->matrix = matrix;
+    }
+
+    void dfs(int i, int j){
+        // if(matrix[i][j] != 'O')
+        //     return;
+
+        matrix[i][j] == '1';
+
+        for(int k=0; k<4; k++){
+            int neighRow = i + neighbourDirections[k][0];
+            int neighCol = j + neighbourDirections[k][1];
+            if(isValid(neighRow, neighCol) && matrix[neighRow][neighCol] == 'O')
+                dfs(neighRow, neighCol);
+        }
+        
     }
 
     void replaceO(){

@@ -48,7 +48,24 @@ public:
         for(int i=1; i<rows-2; i++)
             if(matrix[i][0] == 'O')
                 dfs(i, 0);
+        
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[0].size(); j++){
+                cout<<matrix[i][j]<<" ";
+            }cout<<"\n";
+        }
     }
+
+    void displayMatrix(){
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[0].size(); j++){
+                cout<<matrix[i][j]<<" ";
+            }cout<<"\n";
+        }
+        cout<<"\n";
+    }
+
+    
 };
 
 int main(){

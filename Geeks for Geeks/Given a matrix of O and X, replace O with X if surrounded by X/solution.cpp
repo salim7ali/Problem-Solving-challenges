@@ -11,6 +11,12 @@ public:
         this->matrix = matrix;
     }
 
+    bool isValid(int row, int col){
+        if(row>=0 && row<matrix.size()-1 && col>=0 && col<matrix[0].size()-1)
+            return true;
+        return false;
+    }
+
     void dfs(int i, int j){
         // if(matrix[i][j] != 'O')
         //     return;

@@ -4,9 +4,28 @@
 using namespace std;
 
 class NumberOps{
+    int num;
 public:
+    NumberOps(int num){
+        this->num = num;
+    }
+
+    int getNumberOfSetBits(){
+        int currNum = num;
+        int totalSetBits = 0;
+        while(currNum){
+            currNum = currNum & (currNum-1);
+            totalSetBits += 1;
+        }
+        return totalSetBits;
+    }
 };
 
 int main(){
-  NumberOps obj;  
+  NumberOps obj1(13);  
+  cout<<obj1.getNumberOfSetBits()<<"\n";
+  
+
+  NumberOps obj2(64);  
+  cout<<obj2.getNumberOfSetBits()<<"\n";
 }

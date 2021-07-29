@@ -19,13 +19,19 @@ public:
         }
         return totalSetBits;
     }
+
+    int getFirstSetBitPosition(){
+        return log2(num & ((~num)+1));
+    }
 };
 
 int main(){
   NumberOps obj1(13);  
   cout<<obj1.getNumberOfSetBits()<<"\n";
+  cout<<obj1.getFirstSetBitPosition()<<"\n";
   
 
   NumberOps obj2(64);  
   cout<<obj2.getNumberOfSetBits()<<"\n";
+  cout<<obj2.getFirstSetBitPosition()<<"\n";
 }

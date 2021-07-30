@@ -12,24 +12,31 @@ struct Node{
 };
 
 class BinarySearchTree{
-    Node root;
+    Node *root;
 
 public:
-    Node findInOrderSuccessor(Node inputNode){
-        if(inputNode.right){
-            return firstInorderVal(inputNode.right);
+    Node* firstInorderVal(Node *rightChild){
+        Node *currPtr = rightChild;
+        while(currPtr->left)
+            currPtr = currPtr->left;
+        return currPtr;
+    }
+
+    Node* findInOrderSuccessor(Node *inputNode){
+        if(inputNode->right){
+            return firstInorderVal(inputNode->right);
         }else{
-            Node currNode = inputNode;
-            while(currNode.parent && currNode.parent->right == currNode){
-                currNode = currNode.parent;
+            Node *currNode = inputNode;
+            while(currNode->parent && currNode->parent->right == currNode){
+                currNode = currNode->parent;
             }
 
             // If root
-            if(currNode.parent == NULL)
+            if(currNode->parent == NULL)
                 return currNode;
             
             // Found first parent whose LST we are part of
-            return currNode.parent;
+            return currNode->parent;
 
 
         }

@@ -16,12 +16,20 @@ public:
         for(int ele: nums){
             fullVectorXOR ^= ele;
         }
-        cout<<fullVectorXOR;
+        // cout<<fullVectorXOR;
+
         int firstSetXOR=0;
         int secondSetXOR=0;
+        for(int ele: nums){
+            int firstHighBit = abs(~fullVectorXOR)+1;
+            cout<<firstHighBit;
+            if(ele&firstHighBit)
+                firstSetXOR ^= ele;
+            else
+                secondSetXOR ^= ele;
+        }
 
-        pair<int, int> uniquePairs;
-        return {1, 2};
+        return {firstSetXOR, secondSetXOR};
     }
 };
 
@@ -31,5 +39,6 @@ int main(){
 
     BitOperations obj1(nums);
     result = obj1.uniquePairs();
+    cout<<result.first<<" "<<result.second<<"\n";
     
 }

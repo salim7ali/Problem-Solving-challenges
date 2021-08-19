@@ -37,11 +37,8 @@ public:
             
             // Found first parent whose LST we are part of
             return currNode->parent;
-
-
         }
     }
-
 };
 
 

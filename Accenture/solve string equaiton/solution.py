@@ -10,7 +10,6 @@ def ReplaceX(s):
     first_half = first_half.strip(' ')
     if first_half!='X':
         first_half = int(first_half.strip(' '))
-
     second_half = second_half.strip(' ')
     if second_half!='X':
         second_half = int(second_half.strip(' '))
@@ -20,18 +19,23 @@ def ReplaceX(s):
 
     print(first_half, second_half, third_half)
     
-    # for index, singleChar in enumerate(s):
-    #     if(singleChar!='X'):
-    #         continue
-    #     # case 2
-    #     if i==0:
-
-    #     elif s[i-2]=='+':
-
-    #     else:
-
-    #     break
+    for index, singleChar in enumerate(s):
+        if(singleChar!='X'):
+            continue
+        # case 2
+        if index==0:
+            return third_half-second_half
+        # case 3
+        elif s[index-2]=='+':
+            return third_half-first_half
+        # case 4
+        else:
+            return first_half+second_half
+        break
 
 if __name__ == "__main__":
     s = "2 + 15 = X"
+    print(ReplaceX(s))
+
+    s = "22 + X = 145"
     print(ReplaceX(s))

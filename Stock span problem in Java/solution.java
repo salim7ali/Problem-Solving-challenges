@@ -1,8 +1,13 @@
-import java.lang.reflect.InaccessibleObjectException;
 import java.util.Stack;
 
 public class solution {
 
+    public static void displayArray(Integer[] result) {
+        for(Integer ele: result){
+            System.out.print(ele + " ");
+        }
+    }
+    
     public static Integer[] stockSpanProblem(Integer[] stocks) {
         Stack<Integer> stockStack = new Stack<Integer>();
         Stack<Integer> indexStack = new Stack<Integer>();
@@ -54,6 +59,8 @@ public class solution {
     }
     public static void main(String[] args) {
         Integer[] stocks = {100, 80,60, 60, 70, 60, 75, 85};
-        System.out.println(stockSpanProblem(stocks));
+        Integer[] res = stockSpanProblem(stocks);
+
+        displayArray(res);
     }
 }

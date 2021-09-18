@@ -29,12 +29,23 @@ class MonsterComparator implements Comparator<Monster>{
 
 public class Solution {
     public static void main(String[] args) {
+        Integer myPower = 123;
 
         PriorityQueue<Monster> pq = new PriorityQueue<>(new MonsterComparator());
         pq.offer(new Monster(78, 10));
         pq.offer(new Monster(130, 0));
-        pq.offer(new Monster(80, 0));
 
-        System.out.println(pq);
+        Integer monstersDefeated = 0;
+        while(true){
+            if(pq.isEmpty() == false && pq.peek().power<myPower){
+                myPower += pq.peek().bonus;
+                pq.poll();
+                monstersDefeated += 1;
+            }else
+                break;
+
+        }
+
+        System.out.println(monstersDefeated);
     }
 }

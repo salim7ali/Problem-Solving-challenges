@@ -11,10 +11,8 @@ class Monster{
     
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        return ("{Power: "+power+" Bonus: "+bonus+"}");
     }
-
     
 }
 
@@ -37,6 +35,6 @@ public class Solution {
         pq.offer(new Monster(130, 0));
         pq.offer(new Monster(80, 0));
 
-        System.out.println(pq.peek().bonus);
+        System.out.println(pq);
     }
 }

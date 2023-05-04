@@ -49,8 +49,26 @@ class Solution
     //Function to check if the linked list has a loop.
     bool detectLoop(Node* head)
     {
-        // your code here
+        // start positions
+        Node* tortoiseLoc = head;
+        Node* hareLoc = head->next;
+
+        bool hasCycle = false;
+
+        // Floyd's cycle finding algorithm
+        while (hareLoc!=NULL && hareLoc->next != NULL && hareLoc->next->next != NULL){
+            if(tortoiseLoc == hareLoc){
+                hasCycle = true;
+                break;
+            }
+            // jump two steps
+            hareLoc = hareLoc->next->next;
+            // jump one step
+            tortoiseLoc = tortoiseLoc->next;
+        }
+        return hasCycle;
     }
+
 };
 
 

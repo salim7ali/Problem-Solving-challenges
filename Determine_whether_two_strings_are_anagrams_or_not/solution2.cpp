@@ -50,9 +50,12 @@ public:
 int main(){
     string text1 = "helmo";
     string text2 = "omehl";
+    string text3 = "lmsho";
 
     Anagrams obj(text1, text2);
+    Anagrams obj2(text3, text2);
     cout<<obj.isAnagram();
+    cout<<obj2.isAnagram();
     
     return 1;
 }

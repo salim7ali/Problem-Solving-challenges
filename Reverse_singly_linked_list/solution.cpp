@@ -13,21 +13,23 @@ struct ListNode {
  
 class Solution {
 public:
-    void recursiveCall(ListNode* prevNode, ListNode* currNode, ListNode* head){
-        // no node edge case
-        if(currNode == NULL)
-            return;
-        if(currNode->next == NULL){
-            recursiveCall(currNode, currNode->next, head);
-        }else{  //  reached tail
-            head = currNode;
+    ListNode* recursiveHelper(ListNode* curr, ListNode* prev){
+        ListNode* newHead;
+        if(curr->next != NULL){
+            newHead = recursiveHelper(curr->next, curr);
+        }else{  // at tail
+            newHead = curr;
         }
 
-        currNode->next = prevNode;
+        curr->next = prev;
+
+        return newHead;
     }
 
     ListNode* reverseList(ListNode* head) {
-        recursiveCall(NULL, head, head);
-        return head;
+        if(head == NULL || head->next == NULL)
+            return head;
+
+        return recursiveHelper(head, NULL);
     }
 };
